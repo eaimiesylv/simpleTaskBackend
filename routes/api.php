@@ -18,4 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('task', 'App\Http\Controllers\TaskController');
+Route::apiResource('task', 'App\Http\Controllers\TaskController')
+//->middleware('cors')
+;
+//Route::match(['post', 'options'], "task", "App\Http\Controllers\TaskController")->middleware("cors");

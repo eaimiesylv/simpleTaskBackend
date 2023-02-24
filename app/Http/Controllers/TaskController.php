@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -17,13 +16,15 @@ class TaskController extends Controller
    
     public function store(Request $request)
     {
-      
+       // return $request->all();
         $request->validate([
             'taskname'=>'required|string',
             'taskdescription'=>'required|string',
             'completion_date'=>'required|date',
             ]);
+           
             try{
+                //return $request->all();
                 Task::firstOrCreate($request->all());
                 return "Task has been created sucessfully";
     
